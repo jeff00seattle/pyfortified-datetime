@@ -22,30 +22,9 @@ Badges
     * - package
       - |version| |supported-versions|
 
-
-.. |docs| image:: https://readthedocs.org/projects/logging-fortified/badge/?style=flat
-    :alt: Documentation Status
-    :target: http://logging-fortified.readthedocs.io
-
-.. |hits| image:: http://hits.dwyl.io/jeff00seattle/logging-fortified.svg
-    :alt: Hit Count
-    :target: http://hits.dwyl.io/jeff00seattle/logging-fortified
-
 .. |license| image:: https://img.shields.io/badge/License-MIT-yellow.svg
     :alt: License Status
     :target: https://opensource.org/licenses/MIT
-
-.. |travis| image:: https://travis-ci.org/jeff00seattle/logging-fortified.svg?branch=master
-    :alt: Travis-CI Build Status
-    :target: https://travis-ci.org/jeff00seattle/logging-fortified
-
-.. |coveralls| image:: https://coveralls.io/repos/jeff00seattle/logging-fortified/badge.svg?branch=master&service=github
-    :alt: Code Coverage Status
-    :target: https://coveralls.io/r/jeff00seattle/logging-fortified
-
-.. |requires| image:: https://requires.io/github/jeff00seattle/logging-fortified/requirements.svg?branch=master
-    :alt: Requirements Status
-    :target: https://requires.io/github/jeff00seattle/logging-fortified/requirements/?branch=master
 
 .. |version| image:: https://img.shields.io/pypi/v/pyfortified_datetime.svg?style=flat
     :alt: PyPI Package latest release
@@ -66,9 +45,82 @@ Install
     pip install pyfortified-datetime
 
 
-Architecture
-------------
+Functions
+---------
+
+.. code-block:: python
+
+    import pyfortified_datetime
+    import datetime as dt
+
+    month_first_date, month_last_date = pyfortified_datetime.dates_month_first_last(dt.date(2016, 12, 20))
+    print(month_first_date)
+    print(month_last_date)
+
+.. code-block:: bash
+
+    datetime.date(2016, 12, 1)
+    datetime.date(2016, 12, 31)
 
 
-Requirements
-------------
+.. code-block:: python
+
+    import pyfortified_datetime
+    import datetime as dt
+
+    start_dt = dt.date(2015, 12, 20)
+    end_dt = dt.date(2016, 1, 6)
+
+    for dt in pyfortified_datetime.dates_range(start_dt, end_dt):
+        pprint(dt.strftime("%Y-%m-%d"))
+
+
+.. code-block:: bash
+
+    '2015-12-20'
+    '2015-12-21'
+    '2015-12-22'
+    '2015-12-23'
+    '2015-12-24'
+    '2015-12-25'
+    '2015-12-26'
+    '2015-12-27'
+    '2015-12-28'
+    '2015-12-29'
+    '2015-12-30'
+    '2015-12-31'
+    '2016-01-01'
+    '2016-01-02'
+    '2016-01-03'
+    '2016-01-04'
+    '2016-01-05'
+    '2016-01-06'
+
+
+.. code-block:: python
+
+    import pyfortified_datetime
+    import datetime as dt
+
+    start_dt = dt.date(2016, 12, 20)
+    end_dt = dt.date(2018, 1, 11))
+
+    for dt in pyfortified_datetime.dates_months_list(start_dt, end_dt):
+        print(dt)
+
+
+.. code-block:: bash
+
+    '2016-12'
+    '2017-01'
+    '2017-02'
+    '2017-03'
+    '2017-04'
+    '2017-05'
+    '2017-06'
+    '2017-07'
+    '2017-08'
+    '2017-09'
+    '2017-10'
+    '2017-11'
+    '2017-12'

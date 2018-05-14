@@ -145,7 +145,7 @@ fresh: dist dist-update install
 register:
 	$(PYTHON3) $(SETUP_FILE) register
 
-local-dev: remove-package
+local-build: remove-package
 	@echo "======================================================"
 	@echo local-dev $(PACKAGE)
 	@echo "======================================================"
@@ -235,23 +235,15 @@ run-examples:
 	@echo "======================================================"
 	@echo run-examples $(PACKAGE)
 	@echo "======================================================"
-	rm -fR tmp/*.json
+	$(PYTHON3) examples/example_dates_range_date.py
 	@echo "======================================================"
-	$(PYTHON3) examples/example_logging_json.py
+	$(PYTHON3) examples/example_dates_range_str.py
 	@echo "======================================================"
-	$(PYTHON3) examples/example_logging_json_buffer.py
+	$(PYTHON3) examples/example_dates_months_list.py
 	@echo "======================================================"
-	$(PYTHON3) examples/example_logging_json_file.py
+	$(PYTHON3) examples/example_dates_months_generator.py
 	@echo "======================================================"
-	$(PYTHON3) examples/example_logging_json_stdout.py
-	@echo "======================================================"
-	$(PYTHON3) examples/example_logging_json_stdout_color.py
-	@echo "======================================================"
-	$(PYTHON3) examples/example_logging_standard_buffer.py
-	@echo "======================================================"
-	$(PYTHON3) examples/example_logging_standard_file.py
-	@echo "======================================================"
-	ls -al tmp/*.json
+	$(PYTHON3) examples/example_dates_month_first_last.py
 	@echo "======================================================"
 
 run-core-examples:
